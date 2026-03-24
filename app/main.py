@@ -9,6 +9,7 @@ from contextlib import asynccontextmanager
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    import app.models
     from app.database import create_db_and_tables
     create_db_and_tables()
     yield
@@ -30,6 +31,13 @@ async def unauthorized_redirect_handler(request: Request, exc: Exception):
     return templates.TemplateResponse(
         request=request, 
         name="401.html",
+    )
+
+@app.exception_handler(status.HTTP_404_NOT_FOUND)
+async def not_found_handler(request: Request, exc: Exception):
+    return templates.TemplateResponse(
+        request=request, 
+        name="404.html",
     )
 
 if __name__ == "__main__":

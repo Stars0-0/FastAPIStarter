@@ -77,6 +77,16 @@
                     <span class="material-symbols-outlined me-2">people</span>
                     Users
                 </a>
+
+                <a class="nav-link d-flex align-items-center {{ 'active' if request.path == '/Chat' }}" href="/chats">
+                    <span class="material-symbols-outlined me-2">chats</span>
+                    Chats
+                </a>
+
+                <a class="nav-link d-flex align-items-center {{ 'active' if request.path == '/Chat' }}" href="/upload">
+                    <span class="material-symbols-outlined me-2">upload</span>
+                    Uploads
+                </a>
             </li>
             
             <li class="nav-item mt-auto">
