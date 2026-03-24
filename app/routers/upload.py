@@ -49,3 +49,4 @@ async def delete_upload_file(
             await upload_service.delete_file(filename)
 
     return{"message" : "Deletion complete"}
+
